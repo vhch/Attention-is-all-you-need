@@ -103,19 +103,4 @@ def translate_test(model, sequence = "", sequence2 = ""):
     target = output.tolist()[0]
 
     print("teacher_ratio = 1, 번역문 : ",sp.DecodeIds(target))
-
-def beam_search(model, sequence = ""):
-    encoder_index=sp_e.encode(sequence, out_type=int)
-
-    encoder_index = torch.tensor(encoder_index).unsqueeze(0).cuda()
-
-    sequence2 = ""
-    sp.SetEncodeExtraOptions('bos')
-    decoder_input_index = sp.encode(sequence2, out_type=int)
-    decoder_input_index = torch.tensor(decoder_input_index).unsqueeze(0).cuda()
-
-    output = model(encoder_index, decoder_input_index, teacher_forcing_ratio = 0)
-    output = torch.argmax(output, dim=2)
-    target = output.tolist()[0]
-    print("teacher_ratio = 1, 번역문 : ",sp.DecodeIds(target))
 #######################################################################################
