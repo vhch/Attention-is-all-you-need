@@ -1,3 +1,3 @@
-# Attention-is-all-you-need by Pytorch
+# Attention-is-all-you-need Implementation 
 
-Transformer Model Implementation by pytorch
+Transformer Model Implementation by pytorch, nvidia-apex, sentencepiece
